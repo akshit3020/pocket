@@ -1,11 +1,16 @@
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from "expo-router";
+import {
+  ChatTeardropDotsIcon,
+  HouseIcon,
+  VaultIcon,
+} from "phosphor-react-native";
 
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
+        tabBarHideOnKeyboard: true,
 
         tabBarStyle: {
           position: "absolute",
@@ -13,32 +18,35 @@ export default function TabsLayout() {
           borderWidth: 1,
           borderColor: "#262626",
           height: 72,
-          marginHorizontal: 16,
-          marginBottom: 20,
+          marginHorizontal: 24,
+          marginBottom: 24,
           borderRadius: 24,
         },
 
         tabBarItemStyle: {
-          paddingVertical: 5,
+          paddingTop: 6,
         },
 
-        tabBarActiveTintColor: "#6366f1",
-        tabBarInactiveTintColor: "#525252",
+        tabBarActiveTintColor: "#fff",
+        tabBarInactiveTintColor: "#a3a3a3",
 
         tabBarLabelStyle: {
-          fontSize: 11,
+          fontSize: 12,
           fontWeight: "500",
           marginTop: 1,
         },
-        
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" size={size} color={color} />
+          tabBarIcon: ({ focused }) => (
+            <HouseIcon
+              weight="regular"
+              size={focused ? 28 : 26}
+              color={focused ? "#4338ca" : "#a3a3a3"}
+            />
           ),
         }}
       />
@@ -47,8 +55,13 @@ export default function TabsLayout() {
         name="chat"
         options={{
           title: "Chat",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="chat" size={size} color={color} />
+          tabBarStyle: { display: "none" },
+          tabBarIcon: ({ focused }) => (
+            <ChatTeardropDotsIcon
+              weight="regular"
+              size={focused ? 28 : 26}
+              color={focused ? "#4338ca" : "#a3a3a3"}
+            />
           ),
         }}
       />
@@ -57,8 +70,12 @@ export default function TabsLayout() {
         name="vault"
         options={{
           title: "Vault",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="safe" size={size} color={color} />
+          tabBarIcon: ({ focused }) => (
+            <VaultIcon
+              weight="regular"
+              size={focused ? 28 : 26}
+              color={focused ? "#4338ca" : "#a3a3a3"}
+            />
           ),
         }}
       />

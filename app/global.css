@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .screen {
+    @apply flex-1 bg-neutral-950;
+  }
+  .scroll {
+    @apply mt-8 flex-1 px-6s;
+  }
+  .box {
+    @apply rounded-3xl border border-neutral-800 bg-neutral-900 px-4 py-3.5;
+  }
+  .fab {
+    @apply absolute bottom-28 right-6 h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600;
+  }
+}
